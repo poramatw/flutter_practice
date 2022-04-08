@@ -27,31 +27,17 @@ class Fluttful extends StatefulWidget {
 }
 
 class _FluttfulState extends State<Fluttful> {
-  int number = 0;
+  int number = 20;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ListView(
-          children: getData(10),
-        ),
-      ),
-    );
-  }
-
-  List<Widget> getData(int count) {
-    List<Widget> data = [];
-    for (var i = 0; i < count; i++) {
-      var menu = ListTile(
-        title: Text(
-          "List ${i + 1}",
-          style: TextStyle(fontSize: 20),
-        ),
-        subtitle: Text("sublist ${i + 2}"),
-      );
-      data.add(menu);
-    }
-    return data;
+        body: ListView.builder(
+            itemCount: number,
+            itemBuilder: (BuildContext context, index) {
+              return ListTile(
+                title: Text("list ${index + 1}"),
+              );
+            }));
   }
 }
