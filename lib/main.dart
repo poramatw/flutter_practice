@@ -12,38 +12,9 @@ class Fluttless extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Mtest",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("MtestFX"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Image(
-                  image: NetworkImage(
-                      "https://uxwing.com/wp-content/themes/uxwing/download/42-business-professional-services/trade.png")),
-              Text(
-                "MtestFX",
-                style: TextStyle(fontSize: 40, color: Colors.green),
-              ),
-              Text("MtestFX LOW SPREAD",
-                  style: TextStyle(fontSize: 15, color: Colors.green)),
-              Text("สามารถส่งคำสั่งได้ตลอด ราคาส่งตรงจาก LP",
-                  style: TextStyle(fontSize: 15, color: Colors.green)),
-              Text("ทดลองเทรดฟรี ฝากเงินเพื่อรับโบนัส 30%",
-                  style: TextStyle(fontSize: 15, color: Colors.green)),
-              Text("สูงสุดถึง 1000 และโปรโมชั่นอีกมากมาย",
-                  style: TextStyle(fontSize: 15, color: Colors.green)),
-              Text("เพียงแค่เทรดกับเรา",
-                  style: TextStyle(fontSize: 15, color: Colors.green))
-            ],
-          ),
-        ),
-      ),
-      theme: ThemeData(primarySwatch: Colors.cyan),
+      title: "mainpage",
+      home: Fluttful(),
+      theme: ThemeData(primarySwatch: Colors.indigo),
     );
   }
 }
@@ -56,8 +27,43 @@ class Fluttful extends StatefulWidget {
 }
 
 class _FluttfulState extends State<Fluttful> {
+  int number = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("MtestFX"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            Image(
+                image: NetworkImage(
+                    "https://uxwing.com/wp-content/themes/uxwing/download/42-business-professional-services/trade.png")),
+            Text(
+              "MtestFX",
+              style: TextStyle(fontSize: 40, color: Colors.green),
+            ),
+            Text("MtestFX LOW SPREAD",
+                style: TextStyle(fontSize: 15, color: Colors.green)),
+            Text("สามารถส่งคำสั่งได้ตลอด ราคาส่งตรงจาก LP",
+                style: TextStyle(fontSize: 15, color: Colors.green)),
+            Text("ทดลองเทรดฟรี ฝากเงินเพื่อรับโบนัส 30%",
+                style: TextStyle(fontSize: 15, color: Colors.green)),
+            Text("สูงสุดถึง $number และโปรโมชั่นอีกมากมาย",
+                style: TextStyle(fontSize: 15, color: Colors.green)),
+            Text("เพียงแค่เทรดกับเรา",
+                style: TextStyle(fontSize: 15, color: Colors.green))
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+    );
   }
 }
