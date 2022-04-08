@@ -34,7 +34,7 @@ class _FluttfulState extends State<Fluttful> {
     return Scaffold(
       body: Center(
         child: ListView(
-          children: getData(100),
+          children: getData(10),
         ),
       ),
     );
@@ -43,10 +43,14 @@ class _FluttfulState extends State<Fluttful> {
   List<Widget> getData(int count) {
     List<Widget> data = [];
     for (var i = 0; i < count; i++) {
-      data.add(Text(
-        "List ${i + 1}",
-        style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 49, 9, 229)),
-      ));
+      var menu = ListTile(
+        title: Text(
+          "List ${i + 1}",
+          style: TextStyle(fontSize: 20),
+        ),
+        subtitle: Text("sublist ${i + 2}"),
+      );
+      data.add(menu);
     }
     return data;
   }
