@@ -3,14 +3,25 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  var app = MaterialApp(
-    title: "Mtest",
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Hello Flutter"),
+  runApp(Fluttless());
+}
+
+class Fluttless extends StatelessWidget {
+  const Fluttless({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Mtest",
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Hello Flutter"),
+        ),
+        body: Center(
+          child: Text("Hello World"),
+        ),
       ),
-      body: Text("Hello World"),
-    ),
-  );
-  runApp(app);
+      theme: ThemeData(primarySwatch: Colors.cyan),
+    );
+  }
 }
