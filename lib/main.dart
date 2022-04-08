@@ -31,56 +31,23 @@ class _FluttfulState extends State<Fluttful> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> data = [];
-    data.add(
-      Image(
-          image: NetworkImage(
-              "https://uxwing.com/wp-content/themes/uxwing/download/42-business-professional-services/trade.png")),
-    );
-    data.add(
-      Text(
-        "MtestFX",
-        style: TextStyle(fontSize: 40, color: Colors.green),
-      ),
-    );
-    data.add(
-      Text("MtestFX LOW SPREAD",
-          style: TextStyle(fontSize: 15, color: Colors.green)),
-    );
-    data.add(
-      Text("สามารถส่งคำสั่งได้ตลอด ราคาส่งตรงจาก LP",
-          style: TextStyle(fontSize: 15, color: Colors.green)),
-    );
-    data.add(
-      Text("ทดลองเทรดฟรี ฝากเงินเพื่อรับโบนัส 30%",
-          style: TextStyle(fontSize: 15, color: Colors.green)),
-    );
-    data.add(
-      Text("สูงสุดถึง $number และโปรโมชั่นอีกมากมาย",
-          style: TextStyle(fontSize: 15, color: Colors.green)),
-    );
-    data.add(Text("เพียงแค่เทรดกับเรา",
-        style: TextStyle(fontSize: 15, color: Colors.green)));
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("MtestFX"),
-      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: data,
+        child: ListView(
+          children: getData(100),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            number++;
-          });
-        },
-        child: Icon(Icons.add),
-      ),
     );
+  }
+
+  List<Widget> getData(int count) {
+    List<Widget> data = [];
+    for (var i = 0; i < count; i++) {
+      data.add(Text(
+        "List ${i + 1}",
+        style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 49, 9, 229)),
+      ));
+    }
+    return data;
   }
 }
