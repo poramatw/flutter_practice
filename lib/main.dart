@@ -28,25 +28,22 @@ class Fluttful extends StatefulWidget {
 }
 
 class _FluttfulState extends State<Fluttful> {
-  int number = 20;
-
-  List<FoodMenu> menu = [
-    FoodMenu("name", "1000", "assets/images/logo.png"),
-    FoodMenu("name2", "500", "assets/images/logo.png")
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-            itemCount: menu.length,
-            itemBuilder: (BuildContext context, index) {
-              FoodMenu food = menu[index];
-              return ListTile(
-                leading: Image.asset(food.img),
-                title: Text(food.name),
-                subtitle: Text("price " + food.price),
-              );
-            }));
+        body: Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.indigo, borderRadius: BorderRadius.circular(25)),
+          height: 300,
+        ),
+        Container(
+          decoration: BoxDecoration(
+              color: Colors.indigo, borderRadius: BorderRadius.circular(25)),
+          height: 300,
+        )
+      ],
+    ));
   }
 }

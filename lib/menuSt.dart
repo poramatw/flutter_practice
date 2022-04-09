@@ -1,7 +1,7 @@
-class FoodMenu {
+class ListMenu {
   String name;
   String price;
   String img;
 
-  FoodMenu(this.name, this.price, this.img);
+  ListMenu(this.name, this.price, this.img);
 }
