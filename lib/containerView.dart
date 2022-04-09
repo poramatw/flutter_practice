@@ -1,10 +1,12 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
 class ContainView extends StatelessWidget {
   String title;
   int account;
-  String amount;
+  double amount;
   Color color;
 
   // ignore: use_key_in_widget_constructors
@@ -41,7 +43,8 @@ class ContainView extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              amount + " USD",
+              '${NumberFormat("#,###.##").format(amount)}'
+              " USD",
               style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,

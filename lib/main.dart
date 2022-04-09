@@ -37,12 +37,12 @@ class _FluttfulState extends State<Fluttful> {
         child: Center(
           child: Column(
             children: [
-              ContainView("MT4 STANDARD ACCOUNT", 1234567890, "2,000.00",
+              ContainView("MT4 STANDARD ACCOUNT", 1234567890, 2000,
                   Color.fromRGBO(255, 193, 79, 1)),
               SizedBox(
                 height: 15,
               ),
-              ContainView("MT4 STANDARD ACCOUNT", 1234567890, "1,900.00",
+              ContainView("MT4 STANDARD ACCOUNT", 1234567890, 1900,
                   Color.fromRGBO(19, 244, 157, 1))
             ],
           ),
