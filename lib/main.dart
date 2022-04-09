@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'containerView.dart';
 
 void main() {
   runApp(Fluttless());
@@ -29,25 +28,18 @@ class Fluttful extends StatefulWidget {
 
 class _FluttfulState extends State<Fluttful> {
   @override
+  void initState() {
+    super.initState();
+    print("initState");
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print("buildState");
     return SafeArea(
       child: Scaffold(
-          body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            children: [
-              ContainView("MT4 STANDARD ACCOUNT", 1234567890, 2000,
-                  Color.fromRGBO(255, 193, 79, 1)),
-              SizedBox(
-                height: 15,
-              ),
-              ContainView("MT4 STANDARD ACCOUNT", 1234567890, 1900,
-                  Color.fromRGBO(19, 244, 157, 1))
-            ],
-          ),
-        ),
-      )),
+        body: Container(),
+      ),
     );
   }
 }
