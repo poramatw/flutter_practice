@@ -13,10 +13,10 @@ class ContainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(35.0),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(25)),
-      height: 200,
+      height: 250,
       width: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +27,7 @@ class ContainView extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Color.fromRGBO(29, 29, 111, 1)),
             ),
           ),
           Expanded(
@@ -36,7 +36,7 @@ class ContainView extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Color.fromRGBO(29, 29, 111, 1)),
             ),
           ),
           Expanded(
@@ -45,7 +45,7 @@ class ContainView extends StatelessWidget {
               style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                  color: Color.fromRGBO(29, 29, 111, 1)),
             ),
           ),
           Container(
@@ -60,7 +60,10 @@ class ContainView extends StatelessWidget {
               children: [
                 const Text(
                   "View Details",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Color.fromRGBO(29, 29, 111, 1)),
                 ),
               ],
             ),
