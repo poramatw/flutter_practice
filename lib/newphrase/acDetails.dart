@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
-import 'acDetails.dart';
 
-class PhraseTwo extends StatefulWidget {
-  const PhraseTwo({Key? key}) : super(key: key);
+class AcDetials extends StatelessWidget {
+  const AcDetials({Key? key}) : super(key: key);
 
-  @override
-  State<PhraseTwo> createState() => _PhraseTwoState();
-}
-
-class _PhraseTwoState extends State<PhraseTwo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Main Page"),
+        title: const Text("Account Detials"),
         actions: [
           IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                  return const AcDetials();
+                  return const Text("Nextpage");
                 })));
               },
-              icon: const Icon(Icons.arrow_forward))
+              icon: const Icon(Icons.add))
         ],
       ),
       body: Column(),
