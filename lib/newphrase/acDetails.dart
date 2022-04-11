@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class AcDetials extends StatelessWidget {
@@ -11,14 +13,38 @@ class AcDetials extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                  return const Text("Nextpage");
-                })));
+                Navigator.pop(context);
               },
               icon: const Icon(Icons.add))
         ],
       ),
-      body: Column(),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(labelText: "textformfield"),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: "textformfield",
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              FlatButton(
+                child: const Text("add"),
+                color: Colors.amber,
+                textColor: const Color.fromARGB(255, 17, 6, 119),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
+        ),
+      ),
       backgroundColor: const Color.fromRGBO(29, 29, 111, 1),
     );
   }
