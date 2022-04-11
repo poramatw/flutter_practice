@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'acDetails.dart';
+import 'screens/acDetails.dart';
 
 class PhraseTwo extends StatefulWidget {
   const PhraseTwo({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _PhraseTwoState extends State<PhraseTwo> {
                   return const AcDetials();
                 })));
               },
-              icon: const Icon(Icons.arrow_forward))
+              icon: const Icon(Icons.navigate_next))
         ],
       ),
       body: ListView.builder(
