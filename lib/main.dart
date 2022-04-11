@@ -15,7 +15,7 @@ class Fluttless extends StatelessWidget {
     return MaterialApp(
       title: "mainpage",
       home: Fluttful(),
-      theme: ThemeData(primarySwatch: Colors.indigo),
+      //theme: ThemeData(primarySwatch: Colors.indigo),
     );
   }
 }

@@ -30,9 +30,9 @@ class _FluttfulState extends State<Fluttful> {
   @override
   Widget build(BuildContext context) {
     print("buildState");
-    return SafeArea(
-      child: Scaffold(
-        body: FutureBuilder(
+    return Scaffold(
+      body: SafeArea(
+        child: FutureBuilder(
             future: getExchangeRate(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
@@ -61,8 +61,8 @@ class _FluttfulState extends State<Fluttful> {
 
               return const LinearProgressIndicator();
             }),
-        backgroundColor: const Color.fromRGBO(29, 29, 111, 1),
       ),
+      backgroundColor: const Color.fromRGBO(29, 29, 111, 1),
     );
   }
 }
