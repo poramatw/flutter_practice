@@ -24,7 +24,25 @@ class _PhraseTwoState extends State<PhraseTwo> {
               icon: const Icon(Icons.arrow_forward))
         ],
       ),
-      body: Column(),
+      body: ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          // ignore: prefer_const_constructors
+          return Card(
+            elevation: 5,
+            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            child: const ListTile(
+              leading: CircleAvatar(
+                child: FittedBox(
+                  child: Text("0"),
+                ),
+              ),
+              title: Text("menu"),
+              subtitle: Text("data"),
+            ),
+          );
+        },
+      ),
       backgroundColor: const Color.fromRGBO(29, 29, 111, 1),
     );
   }
