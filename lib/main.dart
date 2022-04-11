@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'widgets/Flutfulpack1.dart';
+import 'newphrase/phrase2.dart';
 
 void main() {
   runApp(Fluttless());
@@ -14,7 +14,7 @@ class Fluttless extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "mainpage",
-      home: Fluttful(),
+      home: PhraseTwo(),
       //theme: ThemeData(primarySwatch: Colors.indigo),
     );
   }
