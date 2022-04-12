@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/newphrase/provider/transaction_prod.dart';
+import 'package:provider/provider.dart';
+import 'models/transaction.dart';
 import 'screens/acDetails.dart';
 
 class PhraseTwo extends StatefulWidget {
@@ -18,28 +21,78 @@ class _PhraseTwoState extends State<PhraseTwo> {
           IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                  return const AcDetials();
+                  return AcDetials();
                 })));
               },
               icon: const Icon(Icons.navigate_next))
         ],
       ),
-      body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          // ignore: prefer_const_constructors
-          return Card(
-            elevation: 5,
-            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: const ListTile(
-              leading: CircleAvatar(
-                child: FittedBox(
-                  child: Text("0"),
+      body: Consumer(
+        builder: (context, TransactionProvider provider, child) {
+          return ListView.builder(
+            itemCount: provider.transactions.length,
+            itemBuilder: (context, index) {
+              Transactions data = provider.transactions[index];
+              return Card(
+                elevation: 5,
+                margin: const EdgeInsets.symmetric(
+                  vertical: 5,
                 ),
-              ),
-              title: Text("menu"),
-              subtitle: Text("data"),
-            ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        const Text("ประเภทบัญชี "),
+                        Text(data.acct_type),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("หมายเลขบัญชี "),
+                        Text(data.acct_number)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("มาร์จิ้น "),
+                        Text(data.acct_margin.toString()),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("เครดิต "),
+                        Text(data.acct_credits.toString()),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("เลเวอเลจ "),
+                        Text(data.acct_lvg.toString())
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("ชื่อบัญชี "),
+                        Text(data.acct_name)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("รหัสผ่านสำการซื้อขาย "),
+                        Text(data.acct_pass_trans)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Text("รหัสผ่านสำดูเท่านั้น "),
+                        Text(data.acct_pass_watch)
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
           );
         },
       ),

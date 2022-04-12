@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'containerView.dart';
 import 'package:flutter/material.dart';
 import 'ExchangeRate.dart';

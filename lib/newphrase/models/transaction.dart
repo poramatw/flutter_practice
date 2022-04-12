@@ -3,7 +3,7 @@ class Transactions {
   String acct_number;
   double acct_margin;
   double acct_credits;
-  int acct_lvg;
+  double acct_lvg;
   String acct_name;
   String acct_pass_trans;
   String acct_pass_watch;
