@@ -36,6 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.4 ## Future await >> API
   provider: ^6.0.2 ## database
+  intl: ^0.17.0
+  sembast: ^3.2.0
+  path_provider: ^2.0.9
+  path: ^1.8.0
   
 
 dev_dependencies:
@@ -48,7 +52,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-  intl: ^0.17.0
+  
   
 
 # For information on the generic Dart part of this file, see the

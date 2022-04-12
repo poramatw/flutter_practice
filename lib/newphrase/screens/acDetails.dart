@@ -1,10 +1,21 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/newphrase/models/transaction.dart';
+import 'package:flutter_practice/newphrase/provider/transaction_prod.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_practice/newphrase/models/transaction.dart';
 
 // ignore: use_key_in_widget_constructors
 class AcDetials extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
+
+  final accTypeController = TextEditingController();
+
+  final accNumController = TextEditingController();
+  final marginController = TextEditingController();
+
+  final creditController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +42,8 @@ class AcDetials extends StatelessWidget {
                 children: [
                   TextFormField(
                     decoration:
-                        const InputDecoration(labelText: "textformfield"),
+                        const InputDecoration(labelText: "Account Type"),
+                    controller: accTypeController,
                     validator: (str) {
                       if (str == null || str.isEmpty) {
                         return "fill this!";
@@ -41,7 +53,8 @@ class AcDetials extends StatelessWidget {
                   ),
                   TextFormField(
                     decoration:
-                        const InputDecoration(labelText: "textformfield"),
+                        const InputDecoration(labelText: "Account Number"),
+                    controller: accNumController,
                     validator: (str) {
                       if (str == null || str.isEmpty) {
                         return "fill this!";
@@ -50,8 +63,8 @@ class AcDetials extends StatelessWidget {
                     },
                   ),
                   TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
+                    decoration: const InputDecoration(labelText: "Margin"),
+                    controller: marginController,
                     keyboardType: TextInputType.number,
                     validator: (str) {
                       if (str == null || str.isEmpty) {
@@ -64,58 +77,14 @@ class AcDetials extends StatelessWidget {
                     },
                   ),
                   TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
+                    decoration: const InputDecoration(labelText: "Credit"),
+                    controller: creditController,
                     keyboardType: TextInputType.number,
                     validator: (str) {
                       if (str == null || str.isEmpty) {
                         return "fill this!";
                       }
                       if (double.parse(str) <= 0) {
-                        return "fill this!";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
-                    keyboardType: TextInputType.number,
-                    validator: (str) {
-                      if (str == null || str.isEmpty) {
-                        return "fill this!";
-                      }
-                      if (double.parse(str) <= 0) {
-                        return "fill this!";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
-                    validator: (str) {
-                      if (str == null || str.isEmpty) {
-                        return "fill this!";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
-                    validator: (str) {
-                      if (str == null || str.isEmpty) {
-                        return "fill this!";
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    decoration:
-                        const InputDecoration(labelText: "textformfield"),
-                    validator: (str) {
-                      if (str == null || str.isEmpty) {
                         return "fill this!";
                       }
                       return null;
@@ -127,9 +96,20 @@ class AcDetials extends StatelessWidget {
                     textColor: const Color.fromARGB(255, 17, 6, 119),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+                        var accType = accTypeController.text;
+                        var accNum = accNumController.text;
+                        var accMar = marginController.text;
+                        var accCredit = creditController.text;
+
+                        Transactions statement = Transactions(
+                            acct_type: accType,
+                            acct_number: accNum,
+                            acct_margin: double.parse(accMar),
+                            acct_credits: double.parse(accCredit));
+
+                        var provider = Provider.of<TransactionProvider>(context,
+                            listen: false);
+                        provider.addTransaction(statement);
                         Navigator.pop(context);
                       }
                     },

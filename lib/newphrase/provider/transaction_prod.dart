@@ -1,16 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_practice/newphrase/database/transaction_db.dart';
 
 import '../models/transaction.dart';
 
 class TransactionProvider with ChangeNotifier {
-  List<Transactions> transactions = [
-    Transactions("STANDARD", "MT4-987654321", 500, 200, 100, "abcdefg",
-        "zxcvzxcvzxcv", "sadfasdfasdf"),
-    Transactions("STANDARD", "MT4-123456789", 500, 200, 100, "abcdefg",
-        "zxcvzxcvzxcv", "sadfasdfasdf"),
-    Transactions("STANDARD", "MT4-155468798", 500, 200, 100, "abcdefg",
-        "zxcvzxcvzxcv", "sadfasdfasdf"),
-  ];
+  List<Transactions> transactions = [];
 
 //call data
   List<Transactions> getTransaction() {
@@ -18,7 +12,14 @@ class TransactionProvider with ChangeNotifier {
   }
 
 //add data
-  void addTransaction(Transactions statement) {
-    transactions.add(statement);
+  void addTransaction(Transactions statement) async {
+    var db = TransactionDB(dbName: "transactions.db");
+
+    //save data
+    await db.InsertData(statement);
+    transactions.insert(0, statement);
+
+    //notify Consummer
+    notifyListeners();
   }
 }

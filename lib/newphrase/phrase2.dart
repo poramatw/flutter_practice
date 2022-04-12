@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/newphrase/provider/transaction_prod.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'models/transaction.dart';
 import 'screens/acDetails.dart';
@@ -29,74 +32,62 @@ class _PhraseTwoState extends State<PhraseTwo> {
       ),
       body: Consumer(
         builder: (context, TransactionProvider provider, child) {
-          return ListView.builder(
-            itemCount: provider.transactions.length,
-            itemBuilder: (context, index) {
-              Transactions data = provider.transactions[index];
-              return Card(
-                elevation: 5,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 5,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const Text("ประเภทบัญชี "),
-                        Text(data.acct_type),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("หมายเลขบัญชี "),
-                        Text(data.acct_number)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("มาร์จิ้น "),
-                        Text(data.acct_margin.toString()),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("เครดิต "),
-                        Text(data.acct_credits.toString()),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("เลเวอเลจ "),
-                        Text(data.acct_lvg.toString())
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("ชื่อบัญชี "),
-                        Text(data.acct_name)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("รหัสผ่านสำการซื้อขาย "),
-                        Text(data.acct_pass_trans)
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Text("รหัสผ่านสำดูเท่านั้น "),
-                        Text(data.acct_pass_watch)
-                      ],
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
+          var count = provider.transactions.length;
+          if (count <= 0) {
+            return Center(
+              child: Text(
+                "No data",
+                style: TextStyle(fontSize: 35),
+              ),
+            );
+          } else {
+            return ListView.builder(
+              itemCount: count,
+              itemBuilder: (context, index) {
+                Transactions data = provider.transactions[index];
+                return Card(
+                  elevation: 5,
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 5,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Text("ประเภทบัญชี "),
+                          Text(data.acct_type),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Text("หมายเลขบัญชี "),
+                          Text(data.acct_number)
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Text("มาร์จิ้น "),
+                          Text(NumberFormat("#,###.##")
+                              .format(data.acct_margin)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Text("เครดิต "),
+                          Text(NumberFormat("#,###.##")
+                              .format(data.acct_credits)),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          }
         },
       ),
-      backgroundColor: const Color.fromRGBO(29, 29, 111, 1),
+      backgroundColor: Colors.white,
     );
   }
 }
